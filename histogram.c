@@ -8,45 +8,44 @@ double random()
 
 	x = a*x % m;
 
-	return ((double) x)/m; 
+	return ((double) x) / m; 
 }
 
 double p(double x){
 			return 1.052*exp(-x);}
 
-
 #define N 100000
 int main (void)
 {
-	int i,j,k;
-	int M = 100;
-	double INT, h;
-	double x[N], x2[N];
-	double xmin = 0., xmax=3.;
-	double dx = (xmax-xmin)/M;
-	int count[M];
-	
-	for(k=0;k<M;k++){
-			count[k]=0;
-	}
+int i,j,k;
+int M = 100;
+double INT, h;
+double x[N], x2[N];
+double xmin = 0., xmax=3.;
+double dx = (xmax-xmin)/M;
+int count[M];
 
-	for(i=1; i<=N; i++){
-	x[i]= random();
-	x2[i]= -log(1- x[i]/1.052);	//printf("x2 %lf\n", x2[i]);
-	
+for(k = 0; k < M; k++){
+		count[k] = 0;
 }
-	
-	for(j=0;j<M;j++){
 
-		for(i=0;i<N;i++){
-			if( (xmin +j*dx<x2[i]) && (x2[i]<xmin +(j+1)*dx) ){
-				count[j]=count[j]+1;
-			}
+for(i = 1; i <= N; i++){
+x[i] = random();
+x2[i] = -log(1- x[i] / 1.052);	//printf("x2 %lf\n", x2[i]);
+
+}
+
+for(j = 0; j < M; j++){
+
+	for(i = 0;i < N; i++){
+		if((xmin + j*dx < x2[i]) && (x2[i] < xmin + (j+1)*dx) ){
+			count[j] = count[j]+1;
 		}
-		printf("%lf %lf \n", xmin+j*dx+dx/2., count[j]/(N*dx));
-								}
+	}
+	printf("%lf %lf \n", xmin+j*dx+dx/2., count[j]/(N*dx));
+}
 
-	return 0;
+return 0;
 }
 
 
