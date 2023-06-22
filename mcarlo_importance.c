@@ -4,8 +4,7 @@
 #include <stdlib.h>
 
 // distribuição uniforme
-double aleatorio()
-{
+double aleatorio(){
 	// Nao altere esta funcao!!!
 	static long int x = 947236;
 	long int a = 16807, m = 2147483647;
